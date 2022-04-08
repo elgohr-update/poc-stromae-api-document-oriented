@@ -1,0 +1,1 @@
+# poc-stromae-api-document-oriented
