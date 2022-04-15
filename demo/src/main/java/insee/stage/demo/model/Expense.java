@@ -79,5 +79,4 @@ public class Expense {
 
     public void setStateData(Statedata stateData) {
     }
-
 }
