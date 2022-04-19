@@ -1,7 +1,6 @@
 package insee.stage.demo.service;
 
 import insee.stage.demo.model.SurveyUnit;
-import insee.stage.demo.model.Personalization;
 import insee.stage.demo.model.Statedata;
 import insee.stage.demo.repository.SurveyUnitRepository;
 import org.json.JSONObject;
@@ -53,7 +52,7 @@ public class SurveyUnitService {
         surveyUnitRepository.save(surveyUnit);
     }
 
-    public void updateExpensePersonalization(SurveyUnit surveyUnit, Personalization personalization) {
+    public void updateExpensePersonalization(SurveyUnit surveyUnit, JSONObject personalization) {
         surveyUnit.setPersonalization(personalization);
         surveyUnitRepository.save(surveyUnit);
     }

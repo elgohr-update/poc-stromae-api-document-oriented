@@ -18,7 +18,7 @@ public class SurveyUnit {
     @Field(name = "comment")
     private String comment;
     @Field(name = "personalization")
-    private Personalization personalization;
+    private JSONObject personalization;
     @Field(name = "state-data")
     private Statedata stateData;
     @Field(name = "data")
@@ -27,7 +27,7 @@ public class SurveyUnit {
 
 
 
-    public SurveyUnit(String id, String comment, Personalization personalization, Statedata stateData, JSONObject data) {
+    public SurveyUnit(String id, String comment, JSONObject personalization, Statedata stateData, JSONObject data) {
         this.id = id;
         this.comment = comment;
         this.personalization = personalization;
@@ -51,11 +51,11 @@ public class SurveyUnit {
         this.comment = comment;
     }
 
-    public Personalization getPersonalization() {
+    public JSONObject getPersonalization() {
         return personalization;
     }
 
-    public void setPersonalization(Personalization personalization) {
+    public void setPersonalization(JSONObject personalization) {
         this.personalization = personalization;
     }
 
@@ -69,11 +69,6 @@ public class SurveyUnit {
 
     public void setData(JSONObject data) {
         this.data = data;
-    }
-
-    public void setParadata(JSONObject paradata, List list) {
-        paradata.put("idSU", this.id);
-        paradata.put("events",list);
     }
 
 

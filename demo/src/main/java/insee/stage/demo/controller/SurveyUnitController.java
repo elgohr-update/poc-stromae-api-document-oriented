@@ -1,7 +1,6 @@
 package insee.stage.demo.controller;
 
 import insee.stage.demo.model.SurveyUnit;
-import insee.stage.demo.model.Personalization;
 import insee.stage.demo.model.Statedata;
 import insee.stage.demo.service.SurveyUnitService;
 import org.json.JSONObject;
@@ -26,10 +25,6 @@ public class SurveyUnitController {
         surveyUnitService.addExpense(surveyUnit);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-
-
-
-
 
 
     @GetMapping
@@ -90,7 +85,7 @@ public class SurveyUnitController {
     /** GET personalization **/
 
     @GetMapping("/{id}/personalization")
-    public ResponseEntity<Personalization> getDataByPersonalization(@PathVariable String id) {
+    public ResponseEntity<JSONObject> getDataByPersonalization(@PathVariable String id) {
         return  ResponseEntity.ok(surveyUnitService.getExpenseById(id).getPersonalization());
     }
 
