@@ -1,10 +1,9 @@
 package insee.stage.demo.controller;
 
-import insee.stage.demo.model.Expense;
-import insee.stage.demo.model.Metadata;
+import insee.stage.demo.model.SurveyUnit;
 import insee.stage.demo.model.Personalization;
 import insee.stage.demo.model.Statedata;
-import insee.stage.demo.service.ExpenseService;
+import insee.stage.demo.service.SurveyUnitService;
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,17 +13,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/survey-units")
-public class ExpenseController {
+public class SurveyUnitController {
 
-    private final ExpenseService expenseService;
+    private final SurveyUnitService surveyUnitService;
 
-    public ExpenseController(ExpenseService expenseService){
-        this.expenseService = expenseService;
+    public SurveyUnitController(SurveyUnitService surveyUnitService){
+        this.surveyUnitService = surveyUnitService;
     }
 
     @PostMapping
-    public ResponseEntity addExpense(@RequestBody Expense expense) {
-        expenseService.addExpense(expense);
+    public ResponseEntity addExpense(@RequestBody SurveyUnit surveyUnit) {
+        surveyUnitService.addExpense(surveyUnit);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
@@ -34,14 +33,14 @@ public class ExpenseController {
 
 
     @GetMapping
-    public ResponseEntity<List<Expense>> getAllExpenses() {
-       return ResponseEntity.ok(expenseService.getAllExpenses());
+    public ResponseEntity<List<SurveyUnit>> getAllExpenses() {
+       return ResponseEntity.ok(surveyUnitService.getAllExpenses());
     }
 
     /** GET /survey-unit**/
     @GetMapping("/{id}")
-    public ResponseEntity<Expense> getExpenseById(@PathVariable String id) {
-        return ResponseEntity.ok(expenseService.getExpenseById(id));
+    public ResponseEntity<SurveyUnit> getExpenseById(@PathVariable String id) {
+        return ResponseEntity.ok(surveyUnitService.getExpenseById(id));
     }
 
     /**GET nomenclature rep **/
@@ -59,8 +58,8 @@ public class ExpenseController {
 
     @PutMapping("/{id}/state-data")
     public ResponseEntity updateStateDataById(@PathVariable String id, @RequestBody Statedata  stateData){
-        Expense expense = expenseService.getExpenseById(id);
-        expenseService.updateExpenseStateData(expense, stateData);
+        SurveyUnit surveyUnit = surveyUnitService.getExpenseById(id);
+        surveyUnitService.updateExpenseStateData(surveyUnit, stateData);
         return ResponseEntity.ok().build();
     }
 
@@ -68,8 +67,8 @@ public class ExpenseController {
 
     @PutMapping("/{id}/data")
     public ResponseEntity updateDataById(@PathVariable String id, @RequestBody JSONObject  data){
-      Expense expense = expenseService.getExpenseById(id);
-      expenseService.updateExpenseData(expense, data);
+      SurveyUnit surveyUnit = surveyUnitService.getExpenseById(id);
+      surveyUnitService.updateExpenseData(surveyUnit, data);
       return ResponseEntity.ok().build();
     }
 
@@ -77,8 +76,8 @@ public class ExpenseController {
 
     /** PUT survey unit **/
     @PutMapping
-    public ResponseEntity<Object> updateExpense(@RequestBody Expense expense) {
-        expenseService.updateExpense(expense);
+    public ResponseEntity<Object> updateExpense(@RequestBody SurveyUnit surveyUnit) {
+        surveyUnitService.updateExpense(surveyUnit);
         return ResponseEntity.ok().build();
     }
 
@@ -92,14 +91,14 @@ public class ExpenseController {
 
     @GetMapping("/{id}/personalization")
     public ResponseEntity<Personalization> getDataByPersonalization(@PathVariable String id) {
-        return  ResponseEntity.ok(expenseService.getExpenseById(id).getPersonalization());
+        return  ResponseEntity.ok(surveyUnitService.getExpenseById(id).getPersonalization());
     }
 
 
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteExpense(@PathVariable String  id) {
-        expenseService.deleteExpense(id);
+        surveyUnitService.deleteExpense(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }

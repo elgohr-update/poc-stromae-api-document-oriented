@@ -10,7 +10,7 @@ import java.awt.*;
 
 
 @Document("survey-units")
-public class Expense {
+public class SurveyUnit {
 
 
     @Id
@@ -27,7 +27,7 @@ public class Expense {
 
 
 
-    public Expense(String id, String comment, Personalization personalization, Statedata stateData, JSONObject data) {
+    public SurveyUnit(String id, String comment, Personalization personalization, Statedata stateData, JSONObject data) {
         this.id = id;
         this.comment = comment;
         this.personalization = personalization;

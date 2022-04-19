@@ -1,7 +1,6 @@
 package insee.stage.demo.service;
 
 
-import insee.stage.demo.model.Expense;
 import insee.stage.demo.model.Metadata;
 import insee.stage.demo.repository.MetadataRepository;
 

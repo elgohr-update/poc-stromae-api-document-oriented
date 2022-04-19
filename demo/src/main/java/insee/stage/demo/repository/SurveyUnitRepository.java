@@ -1,12 +1,12 @@
 package insee.stage.demo.repository;
 
-import insee.stage.demo.model.Expense;
+import insee.stage.demo.model.SurveyUnit;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
 import java.util.Optional;
 
-public interface ExpenseRepository extends MongoRepository<Expense, String> {
+public interface SurveyUnitRepository extends MongoRepository<SurveyUnit, String> {
     @Query("{'name': ?0}")
-    Optional<Expense> findByName(String name);
+    Optional<SurveyUnit> findByName(String name);
 }

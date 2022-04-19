@@ -1,7 +1,6 @@
 package insee.stage.demo.controller;
 
 import insee.stage.demo.model.Metadata;
-import insee.stage.demo.service.ExpenseService;
 import insee.stage.demo.service.MetadataService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
