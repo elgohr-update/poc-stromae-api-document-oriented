@@ -14,6 +14,8 @@ import java.util.List;
 @RequestMapping("/api/survey-units")
 public class SurveyUnitController {
 
+
+
     private final SurveyUnitService surveyUnitService;
 
     public SurveyUnitController(SurveyUnitService surveyUnitService){
@@ -75,11 +77,6 @@ public class SurveyUnitController {
         surveyUnitService.updateExpense(surveyUnit);
         return ResponseEntity.ok().build();
     }
-
-
-
-
-
 
 
     /** GET personalization **/
