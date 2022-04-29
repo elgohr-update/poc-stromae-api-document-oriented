@@ -9,7 +9,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-@Import(SpringFoxConfig.class)
 public class SpringBootMongodbTutorialApplication {
 
     public static void main(String[] args) {
