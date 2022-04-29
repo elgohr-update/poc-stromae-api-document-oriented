@@ -25,6 +25,4 @@ public class SwaggerConfiguration {
                         .version(buildProperties.getVersion())
                         .license(new License().name("LICENCE MIT").url("https://github.com/InseeFrLab/poc-stromae-api-document-oriented.git/LICENSE")));
     }
-
-
 }
